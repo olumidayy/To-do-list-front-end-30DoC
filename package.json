@@ -4,7 +4,7 @@
   "description": "This task was made with love from me to you all. Enjoy\r Ensure you maintain the relative file structure of the provided files to prevent unnecessary tear.",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,8 @@
     "mysql": "^2.18.1",
     "session": "^0.1.0",
     "sqlite3": "^4.2.0"
+  },
+  "engines": {
+    "node": "13.1.0"
   }
 }

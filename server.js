@@ -44,6 +44,14 @@ app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/', (req, res)=>{
+    if(req.session.user){
+        res.redirect('/data')
+    }else{
+        res.sendFile(path.join(__dirname + '/login.html'));        
+    }
+})
+
 app.get('/login', (req, res)=>{
     res.sendFile(path.join(__dirname + '/login.html'));
 })
@@ -57,7 +65,7 @@ app.post('/login_submit', (req, res) => {
 })
 
 app.post('/signup_submit', (req, res) => {
-    console.log('signup', req.body)
+    
 })
 
 app.post('/save', (req, res)=>{
