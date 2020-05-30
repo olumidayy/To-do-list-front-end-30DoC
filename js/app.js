@@ -13,16 +13,12 @@ const LINE_THROUGH = "lineThrough";
 let LIST, id;
 
 //get item from local storage
-let data = Get();
+Get();
 
-if (data) {
-  LIST = JSON.parse(data);
-  id = LIST.length;
-  loadList(LIST);
-} else {
-  LIST = [];
-  id = 0;
-}
+
+LIST = [];
+id = 0;
+// console.log(LIST)
 //   load list
 function loadList(array) {
   array.forEach(function (item) {
@@ -122,6 +118,8 @@ function Get() {
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var myObj = JSON.parse(this.response);
+      LIST = myObj;
+      loadList(LIST);
       return myObj;
     }
   };
