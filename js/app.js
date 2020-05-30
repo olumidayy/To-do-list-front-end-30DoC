@@ -1,4 +1,4 @@
-const base_url = "";
+const base_url = "http://127.0.0.1:8000";
 
 const clear = document.querySelector(".clear");
 const dateElement = document.getElementById("date");
@@ -103,6 +103,7 @@ list.addEventListener("click", function (event) {
   } else if (elementJob == "delete") {
     removeToDo(element);
   }
+  console.log(LIST)
   Save(LIST);
 });
 

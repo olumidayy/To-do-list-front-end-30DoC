@@ -25,10 +25,11 @@
       </form>
     </section>
     <script>
-      const contactForm = document.getElementById("submit-form");
-        const loginlink=document.getElementById("form-foot");
+        const base_url = 'http://127.0.0.1:8000';
+        const contactForm = document.getElementById("submit-form");
+        const loginlink = document.getElementById("form-foot");
         loginlink.insertAdjacentHTML("beforeend", `<p>dont have an account, sign up <a href="${base_url}/signup"> here</a></p>`);
-      contactForm.addEventListener("submit", function (event) {
+        contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
         let request = new XMLHttpRequest();
@@ -43,15 +44,16 @@
         };
         let name = document.getElementById("name").value;
         let password = document.getElementById("password").value;
+        console.log(name, password);
 
         let data = JSON.stringify({
           name: name,
           password: password
         });
+        console.log(data)
 
         request.send(data);
       });
     </script>
-    <script src="js/app.js"></script>
   </body>
 </html>

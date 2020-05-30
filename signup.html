@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login form</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
+    <title>Signup form</title>
+    <link rel="stylesheet" type='text/css' href="./css/style.css" />
+    <link rel="stylesheet" href="/css/font-awesome.css" />
   </head>
   <body>
     <section class="login-page">
@@ -19,40 +19,43 @@
             <input type="email" placeholder="email" id="email" required>
             <input type="pass" placeholder="Password" id="password" required />
           </div>
-          <div class="form-footer">
+          <div class="form-footer" id="form-foot">
             <button type="submit">Sign in</button>
           </div>
         </div>
       </form>
     </section>
     <script>
-         const contactForm = document.getElementById("submit-form");
-         const loginlink=document.getElementById("form-foot");
-        loginlink.insertAdjacentHTML("beforeend", `<p>already have an account?, login here: <a href="${base_url}/login"> here</a></p>`);
-contactForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+      const base_url = 'http://127.0.0.1:8000';
+      const contactForm = document.getElementById("submit-form");
+      const loginlink=document.getElementById("form-foot");
+      loginlink.insertAdjacentHTML("beforeend", `<p>already have an account?, login here: <a href="${base_url}/login"> here</a></p>`);
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-  let request = new XMLHttpRequest();
-  let url = base_url + "/signup_submit";
-  request.open("POST", url, true);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.onreadystatechange = function () {
-    if (request.readyState === 4 && request.status === 200) {
-      var jsonData = JSON.parse(request.response);
-      console.log(jsonData);
-    }
-  };
-  let name = document.getElementById("name").value;
-  let password = document.getElementById("password").value;
-  let email=document.getElementById("email").value;
-  let data = JSON.stringify({
-    name: name,
-    password: password
-  });
+        let request = new XMLHttpRequest();
+        let url = base_url + "/signup_submit";
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-Type", "application/json");
+        request.onreadystatechange = function () {
+          if (request.readyState === 4 && request.status === 200) {
+            var jsonData = JSON.parse(request.response);
+            console.log(jsonData);
+          }
+        };
+        let name = document.getElementById("name").value;
+        let password = document.getElementById("password").value;
+        let email=document.getElementById("email").value;
+        let data = JSON.stringify({
+          name: name,
+          email: email,
+          password: password
+        });
+        console.log(data)
 
-  request.send(data);
-});
+        request.send(data);
+      });
     </script>
-    <script src="js/app.js"></script>
+    <script src='js/app.js'></script>
   </body>
 </html>
