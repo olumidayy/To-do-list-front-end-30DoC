@@ -1,6 +1,6 @@
 # To-do-list
 
-## Link to [solution](https://limitless-hollows-48755.herokuapp.com/todo)
+## Link to [solution](https://limitless-hollows-48755.herokuapp.com/)
 
 
 This task was made with love from me to you all. Enjoy
